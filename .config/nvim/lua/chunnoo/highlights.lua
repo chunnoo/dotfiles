@@ -1,21 +1,32 @@
 vim.g.colors_name = "onedark"
 vim.o.background = "dark"
 
+vim.api.nvim_set_hl(0, "DiagnosticError", { ctermfg = 204 })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { ctermfg = 168 })
 vim.api.nvim_set_hl(
 	0,
 	"DiagnosticUnderlineError",
 	{ ctermfg = none, cterm = bold, bold = true }
 )
+
+vim.api.nvim_set_hl(0, "DiagnosticWarn", { ctermfg = 180 })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { ctermfg = 137 })
 vim.api.nvim_set_hl(
 	0,
 	"DiagnosticUnderlineWarn",
 	{ ctermfg = none, cterm = bold, bold = true }
 )
+
+vim.api.nvim_set_hl(0, "DiagnosticInfo", { ctermfg = 39 })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { ctermfg = 32 })
 vim.api.nvim_set_hl(
 	0,
 	"DiagnosticUnderlineInfo",
 	{ ctermfg = none, cterm = bold, bold = true }
 )
+
+vim.api.nvim_set_hl(0, "DiagnosticHint", { ctermfg = 38 })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { ctermfg = 31 })
 vim.api.nvim_set_hl(
 	0,
 	"DiagnosticUnderlineHint",

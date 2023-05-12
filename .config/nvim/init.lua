@@ -1,12 +1,15 @@
 require("chunnoo.profile")
 
 require("chunnoo.plugins")
+require("chunnoo.telescope")
 require("chunnoo.lsp")
 require("chunnoo.completion")
 require("chunnoo.treesitter")
 require("chunnoo.lualine")
-require("chunnoo.gitsigns")
+require("chunnoo.dap")
 
 require("chunnoo.highlights")
+require("chunnoo.usercommands")
 require("chunnoo.keybindings")
 require("chunnoo.autocommands")
+require("chunnoo.various")

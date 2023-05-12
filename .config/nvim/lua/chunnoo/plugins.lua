@@ -19,8 +19,18 @@ return require('packer').startup(function()
     use 'mfukar/robotframework-vim'
     use 'prettier/vim-prettier'
     use 'psf/black'
+    use 'onsails/lspkind.nvim'
 
-    use 'lewis6991/gitsigns.nvim'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
+
+    use 'tpope/vim-fugitive'
 
     use 'mfussenegger/nvim-jdtls'
+    use 'mfussenegger/nvim-dap'
 end)

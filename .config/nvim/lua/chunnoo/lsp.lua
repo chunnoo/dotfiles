@@ -9,11 +9,24 @@ lsp.clangd.setup({
 
 lsp.cmake.setup({})
 
-lsp.rls.setup({
+-- lsp.rls.setup({
+-- 	settings = {
+-- 		unstable_features = true,
+-- 		build_on_save = false,
+-- 		all_features = true,
+-- 	},
+-- })
+
+require("lspconfig").rust_analyzer.setup({
 	settings = {
-		unstable_features = true,
-		build_on_save = false,
-		all_features = true,
+		["rust-analyzer"] = {
+			diagnostics = {
+				enable = false,
+			},
+			checkOnSave = {
+				command = "clippy",
+			},
+		},
 	},
 })
 
@@ -59,7 +72,7 @@ lsp.robotframework_ls.setup({})
 -- 	end,
 -- })
 
-require("lspconfig").sumneko_lua.setup({
+lsp.lua_ls.setup({
 	cmd = { "/home/mathias/temp/lua-language-server/bin/lua-language-server" },
 	settings = {
 		Lua = {

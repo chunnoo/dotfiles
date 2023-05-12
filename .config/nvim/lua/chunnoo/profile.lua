@@ -1,4 +1,4 @@
-vim.g.mapleader = "-"
+vim.g.mapleader = " "
 vim.o.encoding = "utf-8"
 
 vim.o.number = true
@@ -23,7 +23,7 @@ vim.o.secure = true
 vim.o.cursorline = true
 vim.o.scrolloff = 8
 
-vim.o.foldnestmax = 0
+-- vim.o.foldnestmax = 0
 vim.o.foldlevelstart = 99
 
 vim.o.mouse = ""
@@ -34,3 +34,6 @@ vim.opt.colorcolumn = "80"
 vim.opt.listchars:append({ eol = "┐", space = "." })
 
 vim.opt.signcolumn = "auto:2"
+
+-- TODO: This is being overwritten
+-- vim.opt.formatoptions:remove({ "c", "r", "o" })

@@ -14,7 +14,30 @@ local config = {
 				},
 				useBlocks = true,
 			},
+			completion = {
+				importOrder = {
+					"#java",
+					"#com",
+					"#org",
+					"#io",
+					"java",
+					"com",
+					"org",
+					"io",
+				},
+			},
 		},
 	},
+	init_options = {
+		bundles = {
+			vim.fn.glob(
+				"/home/mathias/temp/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
+				1
+			),
+		},
+	},
+	on_attach = function()
+		require("jdtls").setup_dap({ hotcodereplace = "auto" })
+	end,
 }
 require("jdtls").start_or_attach(config)
