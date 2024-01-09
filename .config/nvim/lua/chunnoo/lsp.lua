@@ -83,3 +83,7 @@ lsp.lua_ls.setup({
 		},
 	},
 })
+
+lsp.sqlls.setup({})
+
+lsp.arduino_language_server.setup({})

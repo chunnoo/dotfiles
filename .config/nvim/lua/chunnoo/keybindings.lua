@@ -25,6 +25,7 @@ end)
 
 -- General
 vim.keymap.set("n", "<leader>cc", ":cclose<CR>")
+vim.keymap.set("n", "<leader>z", ":resize<CR>")
 
 -- Telescope
 vim.keymap.set("n", "<C-P>", telescope.git_files)
@@ -44,7 +45,7 @@ vim.keymap.set("n", "<leader>oc", telescope.lsp_outgoing_calls)
 vim.keymap.set("n", "<leader>sgr", telescope.grep_string)
 vim.keymap.set("n", "<leader>lg", telescope.live_grep)
 vim.keymap.set("n", "<leader>gs", telescope.git_status)
-vim.keymap.set("n", "<leader>ds", telescope.lsp_dynamic_workspace_symbols)
+vim.keymap.set("n", "<leader>dws", telescope.lsp_dynamic_workspace_symbols)
 vim.keymap.set("n", "<leader>dg", telescope.diagnostics)
 vim.keymap.set("n", "<leader>bu", function()
 	telescope.buffers({
@@ -118,3 +119,22 @@ vim.keymap.set("n", "<leader>en", ":e .notes<CR>")
 
 -- Git
 vim.keymap.set("n", "<leader>bl", ":Git blame<CR>")
+
+-- Debugging
+vim.keymap.set("n", "<leader>tc", function()
+	require("jdtls").test_class()
+end)
+vim.keymap.set("n", "<leader>tf", function()
+	require("jdtls").test_nearest_method()
+end)
+vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>")
+vim.keymap.set("n", "<leader>dr", ":DapToggleRepl<CR>")
+vim.keymap.set("n", "<leader>si", ":DapStepInto<CR>")
+vim.keymap.set("n", "<leader>so", ":DapStepOver<CR>")
+vim.keymap.set("n", "C-j", require("dap.ui.widgets").hover)
+vim.keymap.set("n", "<leader>dc", require("dap").run_to_cursor)
+vim.keymap.set(
+	"n",
+	"<leader>ds",
+	require("dap.ui.widgets").sidebar(require("dap.ui.widgets").scopes).open
+)

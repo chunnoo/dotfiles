@@ -23,14 +23,19 @@ function SetColorColumn()
 	local type = vim.fn.expand("%:e")
 	if string.find(path, "/Desktop/Coding/Transcoder") ~= nil then
 		vim.opt.colorcolumn = "120"
+		vim.opt.textwidth = 120
 	elseif string.find(path, "/Desktop/Coding/intel%-xe%-driver") ~= nil then
 		vim.opt.colorcolumn = "120"
+		vim.opt.textwidth = 120
 	elseif string.find(path, "/Desktop/Coding/management") ~= nil then
 		vim.opt.colorcolumn = "120"
+		vim.opt.textwidth = 120
 	elseif type == "rs" then
 		vim.opt.colorcolumn = "100"
+		vim.opt.textwidth = 100
 	else
 		vim.opt.colorcolumn = "80"
+		vim.opt.textwidth = 80
 	end
 end
 

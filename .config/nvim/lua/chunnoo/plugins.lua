@@ -15,11 +15,14 @@ return require('packer').startup(function()
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-treesitter/playground'
     use 'nvim-telescope/telescope.nvim'
+    use 'nvim-treesitter/nvim-treesitter-context'
     use 'rhysd/vim-clang-format'
     use 'mfukar/robotframework-vim'
     use 'prettier/vim-prettier'
     use 'psf/black'
     use 'onsails/lspkind.nvim'
+
+    use 'github/copilot.vim'
 
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
