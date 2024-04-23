@@ -14,8 +14,8 @@ vim.api.nvim_create_autocmd(
 )
 
 vim.api.nvim_create_autocmd(
-	{ "BufWritePost" },
-	{ pattern = "*.rs", command = ":silent !rustfmt --edition 2021 %" }
+	{ "BufWritePre" },
+	{ pattern = "*.rs", command = ":lua vim.lsp.buf.format()" }
 )
 
 function SetColorColumn()
@@ -53,6 +53,7 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 		"*.java",
 		"*.ts",
 		"*.py",
+		"*.rs",
 	},
 	command = ":lua vim.lsp.buf.document_highlight()",
 })
@@ -65,6 +66,7 @@ vim.api.nvim_create_autocmd({ "CursorMoved" }, {
 		"*.java",
 		"*.ts",
 		"*.py",
+		"*.rs",
 	},
 	command = ":lua vim.lsp.buf.clear_references()",
 })

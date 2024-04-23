@@ -17,18 +17,24 @@ lsp.cmake.setup({})
 -- 	},
 -- })
 
-require("lspconfig").rust_analyzer.setup({
+lsp.rust_analyzer.setup({
 	settings = {
 		["rust-analyzer"] = {
 			diagnostics = {
-				enable = false,
+				enable = true,
+			},
+			cargo = {
+				allFeatures = true,
 			},
 			checkOnSave = {
+				allFeatures = true,
 				command = "clippy",
 			},
 		},
 	},
 })
+
+lsp.wgsl_analyzer.setup({})
 
 lsp.bashls.setup({})
 
@@ -87,3 +93,7 @@ lsp.lua_ls.setup({
 lsp.sqlls.setup({})
 
 lsp.arduino_language_server.setup({})
+
+lsp.yamlls.setup({
+	settings = { yaml = { customTags = { "!reference sequence" } } },
+})

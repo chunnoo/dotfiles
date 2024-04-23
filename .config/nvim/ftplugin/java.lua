@@ -1,3 +1,6 @@
+-- This should be added to the jdtls exec_args
+-- "-javaagent:/home/mathias/.m2/repository/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar"
+
 local bundles = {
 	vim.fn.glob(
 		"/home/mathias/Desktop/Installs/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
