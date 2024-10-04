@@ -9,73 +9,67 @@ lsp.clangd.setup({
 
 lsp.cmake.setup({})
 
--- lsp.rls.setup({
--- 	settings = {
--- 		unstable_features = true,
--- 		build_on_save = false,
--- 		all_features = true,
--- 	},
--- })
-
-lsp.rust_analyzer.setup({
-	settings = {
-		["rust-analyzer"] = {
-			-- trace = "verbose",
-			diagnostics = {
-				enable = true,
-			},
-			cargo = {
-				-- allFeatures = true,
-				-- features = { "app/ibc-ui" },
-				target = "wasm32-unknown-unknown",
-				-- targetDir = true,
-				buildScripts = {
-					enable = false,
+if vim.env.VIM_RUST_TARGET == "wasm" then
+	lsp.rust_analyzer.setup({
+		settings = {
+			["rust-analyzer"] = {
+				-- trace = "verbose",
+				diagnostics = {
+					enable = true,
+				},
+				cargo = {
+					-- allFeatures = true,
+					-- features = { "app/ibc-ui" },
+					target = "wasm32-unknown-unknown",
+					-- targetDir = true,
+					buildScripts = {
+						enable = false,
+					},
+				},
+				check = {
+					-- allFeature = true,
+					targets = "wasm32-unknown-unknown",
+					workspace = false,
+					-- overrideCommand = {
+					-- 	"cargo check --target wasm32-unknown-unknown --message-format=json -p ibc-ui",
+					-- },
+					-- invocationLocation = "root",
+				},
+				checkOnSave = {
+					-- allTargets = false,
+					-- allFeature = true,
+					command = "clippy",
+					extraArgs = { "--target", "wasm32-unknown-unknown" },
+				},
+				procMacro = {
+					enable = true,
 				},
 			},
-			check = {
-				-- allFeature = true,
-				targets = "wasm32-unknown-unknown",
-				workspace = false,
-				-- overrideCommand = {
-				-- 	"cargo check --target wasm32-unknown-unknown --message-format=json -p ibc-ui",
-				-- },
-				-- invocationLocation = "root",
-			},
-			checkOnSave = {
-				-- allTargets = false,
-				-- allFeature = true,
-				command = "clippy",
-				extraArgs = { "--target", "wasm32-unknown-unknown" },
-			},
-			procMacro = {
-				enable = true,
+		},
+	})
+else
+	lsp.rust_analyzer.setup({
+		settings = {
+			["rust-analyzer"] = {
+				diagnostics = {
+					enable = true,
+				},
+				cargo = {
+					allFeatures = true,
+				},
+				check = {
+					allFeature = true,
+				},
+				checkOnSave = {
+					command = "clippy",
+				},
+				procMacro = {
+					enable = true,
+				},
 			},
 		},
-	},
-})
-
--- lsp.rust_analyzer.setup({
--- 	settings = {
--- 		["rust-analyzer"] = {
--- 			diagnostics = {
--- 				enable = true,
--- 			},
--- 			cargo = {
--- 				allFeatures = true,
--- 			},
--- 			check = {
--- 				allFeature = true,
--- 			},
--- 			checkOnSave = {
--- 				command = "clippy",
--- 			},
--- 			procMacro = {
--- 				enable = true,
--- 			},
--- 		},
--- 	},
--- })
+	})
+end
 
 lsp.wgsl_analyzer.setup({})
 
