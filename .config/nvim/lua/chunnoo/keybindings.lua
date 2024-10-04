@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader>gr", function()
 		initial_mode = "normal",
 		trim_text = true,
 		include_current_line = true,
-		path_display = { "shorten" },
+		-- path_display = { "shorten" },
 		fname_width = 80,
 	})
 end)

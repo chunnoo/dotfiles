@@ -20,19 +20,62 @@ lsp.cmake.setup({})
 lsp.rust_analyzer.setup({
 	settings = {
 		["rust-analyzer"] = {
+			-- trace = "verbose",
 			diagnostics = {
 				enable = true,
 			},
 			cargo = {
-				allFeatures = true,
+				-- allFeatures = true,
+				-- features = { "app/ibc-ui" },
+				target = "wasm32-unknown-unknown",
+				-- targetDir = true,
+				buildScripts = {
+					enable = false,
+				},
+			},
+			check = {
+				-- allFeature = true,
+				targets = "wasm32-unknown-unknown",
+				workspace = false,
+				-- overrideCommand = {
+				-- 	"cargo check --target wasm32-unknown-unknown --message-format=json -p ibc-ui",
+				-- },
+				-- invocationLocation = "root",
 			},
 			checkOnSave = {
-				allFeatures = true,
+				-- allTargets = false,
+				-- allFeature = true,
 				command = "clippy",
+				extraArgs = { "--target", "wasm32-unknown-unknown" },
+			},
+			procMacro = {
+				enable = true,
 			},
 		},
 	},
 })
+
+-- lsp.rust_analyzer.setup({
+-- 	settings = {
+-- 		["rust-analyzer"] = {
+-- 			diagnostics = {
+-- 				enable = true,
+-- 			},
+-- 			cargo = {
+-- 				allFeatures = true,
+-- 			},
+-- 			check = {
+-- 				allFeature = true,
+-- 			},
+-- 			checkOnSave = {
+-- 				command = "clippy",
+-- 			},
+-- 			procMacro = {
+-- 				enable = true,
+-- 			},
+-- 		},
+-- 	},
+-- })
 
 lsp.wgsl_analyzer.setup({})
 

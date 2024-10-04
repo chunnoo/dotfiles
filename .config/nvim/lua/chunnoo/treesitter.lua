@@ -5,12 +5,16 @@ end
 local ts = require("nvim-treesitter")
 local tsconfig = require("nvim-treesitter.configs")
 
-require("nvim-treesitter.configs").setup({ highlight = { enable = true } })
+require("nvim-treesitter.configs").setup({
+	highlight = { enable = true },
+	fold = { enable = true },
+})
 
 vim.cmd("autocmd BufRead,BufNewFile *.tpp set filetype=cpp")
 
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
 
 require("treesitter-context").setup({
 	enable = true,
