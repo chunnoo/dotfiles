@@ -1,9 +1,30 @@
 local lualine = require("lualine")
 
+local c = require("chunnoo.colors")
+
+local normal_theme = {
+	a = { bg = c.light_gray, fg = c.black },
+	b = { bg = c.gray, fg = c.white },
+	c = { bg = c.darker_gray, fg = c.white },
+}
+
+local theme = {
+	normal = normal_theme,
+	insert = normal_theme,
+	visual = normal_theme,
+	replace = normal_theme,
+	command = normal_theme,
+	inactive = {
+		a = { ctermbg = c.darker_gray, ctermfg = c.light_gray, cterm = "none" },
+		b = { ctermbg = c.darker_gray, ctermfg = c.light_gray, cterm = "none" },
+		c = { ctermbg = c.darker_gray, ctermfg = c.light_gray, cterm = "none" },
+	},
+}
+
 lualine.setup({
 	options = {
 		icons_enabled = false,
-		theme = "onedark",
+		theme = theme,
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = {
@@ -21,7 +42,26 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = {},
-		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_b = {
+			{ "branch", color = { fg = c.white, bg = c.gray } },
+			{
+				"diff",
+				diff_color = {
+					added = { fg = c.green, bg = c.gray },
+					modified = { fg = c.yellow, bg = c.gray },
+					removed = { fg = c.red, bg = c.gray },
+				},
+			},
+			{
+				"diagnostics",
+				diagnostics_color = {
+					error = { fg = c.red, bg = c.gray },
+					warn = { fg = c.light_yellow, bg = c.gray },
+					hint = { fg = c.blue, bg = c.gray },
+					info = { fg = c.cyan, bg = c.gray },
+				},
+			},
+		},
 		lualine_c = { { "filename", path = 1 } },
 		lualine_x = { "encoding", "filetype" },
 		lualine_y = { "progress", "location" },
@@ -29,40 +69,35 @@ lualine.setup({
 	},
 	inactive_sections = {
 		lualine_a = {},
-		lualine_b = { "diff", "diagnostics" },
+		lualine_b = {
+			{
+				"diff",
+				diff_color = {
+					added = {
+						bg = c.black,
+						fg = c.green,
+						underline = false,
+					},
+					modified = { bg = c.black, fg = c.yellow },
+					removed = { bg = c.black, fg = c.red },
+				},
+			},
+			{
+				"diagnostics",
+				diagnostics_color = {
+					error = { bg = c.black, fg = c.red },
+					warn = { bg = c.black, fg = c.light_yellow },
+					hint = { bg = c.black, fg = c.blue },
+					info = { bg = c.black, fg = c.cyan },
+				},
+			},
+		},
 		lualine_c = { { "filename", path = 1 } },
 		lualine_x = { "location" },
 		lualine_y = { "progress" },
 		lualine_z = {},
 	},
-	tabline = {
-		lualine_a = {
-			{
-				"tabs",
-				show_filename_only = true,
-				hide_filename_extension = false,
-				show_modified_status = true,
-				mode = 0,
-				max_length = vim.o.columns * 2 / 3,
-				filetype_names = {
-					TelescopePrompt = "Telescope",
-					dashboard = "Dashboard",
-					packer = "Packer",
-					fzf = "FZF",
-					alpha = "Alpha",
-				},
-				buffers_color = {
-					active = "lualine_b_normal",
-					inactive = "lualine_b_inactive",
-				},
-				symbols = {
-					modified = "[+]",
-					alternate_file = "#",
-					directory = "",
-				},
-			},
-		},
-	},
+	tabline = {},
 	winbar = {},
 	inactive_winbar = {},
 	extensions = {},

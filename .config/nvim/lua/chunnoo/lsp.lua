@@ -85,7 +85,8 @@ lsp.html.setup({
 	init_options = { provideFormatter = false },
 })
 
-lsp.tsserver.setup({})
+-- tsserver is deprecated, use ts_ls instead
+-- lsp.tsserver.setup({})
 
 lsp.zls.setup({})
 
