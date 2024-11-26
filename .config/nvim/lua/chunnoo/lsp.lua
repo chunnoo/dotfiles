@@ -1,3 +1,6 @@
+-- Should be called once before starting any server
+require("lsp-status").register_progress()
+
 vim.o.completeopt = "noinsert,menuone,noselect"
 
 local lsp = require("lspconfig")

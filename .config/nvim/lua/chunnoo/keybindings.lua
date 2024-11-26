@@ -56,11 +56,15 @@ end)
 
 -- LSP
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true })
-vim.keymap.set("n", "<C-k>", vim.lsp.buf.hover, { silent = true })
+vim.keymap.set("n", "<C-k>", function()
+	vim.lsp.buf.hover({ border = "rounded" })
+end, { silent = true })
 vim.keymap.set("n", "<leader>vh", vim.lsp.buf.hover)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
-vim.keymap.set("n", "<leader>sd", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>sd", function()
+	vim.diagnostic.open_float({ border = "rounded" })
+end)
 vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next)
 
 -- Diagnostics

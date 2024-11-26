@@ -2,6 +2,16 @@ local lualine = require("lualine")
 
 local c = require("chunnoo.colors")
 
+local lsp_status = require("lsp-status")
+
+local function custom_lsp_status(bufnr)
+	local progress = lsp_status.status_progress()
+	if progress == "" then
+		return "✓"
+	end
+	return progress
+end
+
 local normal_theme = {
 	a = { bg = c.light_gray, fg = c.black },
 	b = { bg = c.gray, fg = c.white },
@@ -63,7 +73,7 @@ lualine.setup({
 			},
 		},
 		lualine_c = { { "filename", path = 1 } },
-		lualine_x = { "encoding", "filetype" },
+		lualine_x = { custom_lsp_status },
 		lualine_y = { "progress", "location" },
 		lualine_z = {},
 	},
