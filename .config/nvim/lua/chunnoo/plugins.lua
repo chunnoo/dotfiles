@@ -11,21 +11,21 @@ return require("packer").startup(function()
 	use("nvim-lua/plenary.nvim")
 
 	use("neovim/nvim-lspconfig")
-	-- use("navarasu/onedark.nvim")
-	-- use("joshdick/onedark.vim")
-	-- use("kuangliu/onedark.vim")
-	-- use("ii14/onedark.nvim")
-	-- use("chriskempson/base16-vim")
+	use("onsails/lspkind.nvim")
+	use("nvim-lua/lsp-status.nvim")
+
 	use("nvim-treesitter/nvim-treesitter")
 	use("nvim-treesitter/playground")
-	use("nvim-telescope/telescope.nvim")
 	use("nvim-treesitter/nvim-treesitter-context")
+
+	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-ui-select.nvim")
+	use("nvim-telescope/telescope-live-grep-args.nvim")
+
 	use("rhysd/vim-clang-format")
 	use("mfukar/robotframework-vim")
 	use("prettier/vim-prettier")
 	use("psf/black")
-	use("onsails/lspkind.nvim")
-	use("nvim-lua/lsp-status.nvim")
 
 	use("github/copilot.vim")
 
@@ -40,5 +40,5 @@ return require("packer").startup(function()
 	use("tpope/vim-fugitive")
 
 	use("mfussenegger/nvim-jdtls")
-	use("mfussenegger/nvim-dap")
+	use("mfussenegger/nvim-dap") -- Look into telescope-dap
 end)

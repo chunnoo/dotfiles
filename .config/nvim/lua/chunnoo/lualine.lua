@@ -13,8 +13,8 @@ local function custom_lsp_status(bufnr)
 end
 
 local normal_theme = {
-	a = { bg = c.light_gray, fg = c.black },
-	b = { bg = c.gray, fg = c.white },
+	a = { bg = c.gray, fg = c.black },
+	b = { bg = c.dark_gray, fg = c.white },
 	c = { bg = c.darker_gray, fg = c.white },
 }
 
@@ -25,9 +25,9 @@ local theme = {
 	replace = normal_theme,
 	command = normal_theme,
 	inactive = {
-		a = { ctermbg = c.darker_gray, ctermfg = c.light_gray, cterm = "none" },
-		b = { ctermbg = c.darker_gray, ctermfg = c.light_gray, cterm = "none" },
-		c = { ctermbg = c.darker_gray, ctermfg = c.light_gray, cterm = "none" },
+		a = { ctermbg = c.darker_gray, ctermfg = c.light_gray },
+		b = { ctermbg = c.darker_gray, ctermfg = c.light_gray },
+		c = { ctermbg = c.darker_gray, ctermfg = c.light_gray },
 	},
 }
 
@@ -53,22 +53,22 @@ lualine.setup({
 	sections = {
 		lualine_a = {},
 		lualine_b = {
-			{ "branch", color = { fg = c.white, bg = c.gray } },
+			{ "branch", color = { fg = c.white, bg = c.dark_gray } },
 			{
 				"diff",
 				diff_color = {
-					added = { fg = c.green, bg = c.gray },
-					modified = { fg = c.yellow, bg = c.gray },
-					removed = { fg = c.red, bg = c.gray },
+					added = { fg = c.green, bg = c.dark_gray },
+					modified = { fg = c.yellow, bg = c.dark_gray },
+					removed = { fg = c.red, bg = c.dark_gray },
 				},
 			},
 			{
 				"diagnostics",
 				diagnostics_color = {
-					error = { fg = c.red, bg = c.gray },
-					warn = { fg = c.light_yellow, bg = c.gray },
-					hint = { fg = c.blue, bg = c.gray },
-					info = { fg = c.cyan, bg = c.gray },
+					error = { fg = c.red, bg = c.dark_gray },
+					warn = { fg = c.light_yellow, bg = c.dark_gray },
+					hint = { fg = c.blue, bg = c.dark_gray },
+					info = { fg = c.cyan, bg = c.dark_gray },
 				},
 			},
 		},
@@ -84,21 +84,21 @@ lualine.setup({
 				"diff",
 				diff_color = {
 					added = {
-						bg = c.black,
+						bg = c.darker_gray,
 						fg = c.green,
 						underline = false,
 					},
-					modified = { bg = c.black, fg = c.yellow },
-					removed = { bg = c.black, fg = c.red },
+					modified = { bg = c.darker_gray, fg = c.yellow },
+					removed = { bg = c.darker_gray, fg = c.red },
 				},
 			},
 			{
 				"diagnostics",
 				diagnostics_color = {
-					error = { bg = c.black, fg = c.red },
-					warn = { bg = c.black, fg = c.light_yellow },
-					hint = { bg = c.black, fg = c.blue },
-					info = { bg = c.black, fg = c.cyan },
+					error = { bg = c.darker_gray, fg = c.red },
+					warn = { bg = c.darker_gray, fg = c.light_yellow },
+					hint = { bg = c.darker_gray, fg = c.blue },
+					info = { bg = c.darker_gray, fg = c.cyan },
 				},
 			},
 		},

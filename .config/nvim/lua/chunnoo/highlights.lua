@@ -3,7 +3,7 @@ function highlights()
 
 	vim.o.termguicolors = false
 
-	vim.api.nvim_set_hl(0, "Normal", { ctermfg = c.white })
+	vim.api.nvim_set_hl(0, "Normal", { ctermfg = c.white, ctermbg = c.black })
 	vim.api.nvim_set_hl(0, "Statement", { ctermfg = c.light_gray })
 	vim.api.nvim_set_hl(0, "Keyword", { ctermfg = c.pink })
 	vim.api.nvim_set_hl(0, "Function", { ctermfg = c.blue })

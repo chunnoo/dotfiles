@@ -58,10 +58,10 @@ else
 					enable = true,
 				},
 				cargo = {
-					allFeatures = true,
+					-- allFeatures = true,
 				},
 				check = {
-					allFeature = true,
+					-- allFeature = true,
 				},
 				checkOnSave = {
 					command = "clippy",
@@ -87,6 +87,9 @@ lsp.html.setup({
 	cmd = { "html-languageserver", "--stdio" },
 	init_options = { provideFormatter = false },
 })
+
+lsp.css_variables.setup({})
+lsp.cssls.setup({})
 
 -- tsserver is deprecated, use ts_ls instead
 -- lsp.tsserver.setup({})

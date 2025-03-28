@@ -1,5 +1,6 @@
 local HOME = os.getenv("HOME")
 local telescope = require("telescope.builtin")
+local telescope_extensions = require("telescope").extensions
 
 vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("i", "Jk", "<ESC>")
@@ -43,7 +44,12 @@ end)
 vim.keymap.set("n", "<leader>ic", telescope.lsp_incoming_calls)
 vim.keymap.set("n", "<leader>oc", telescope.lsp_outgoing_calls)
 vim.keymap.set("n", "<leader>sgr", telescope.grep_string)
-vim.keymap.set("n", "<leader>lg", telescope.live_grep)
+-- vim.keymap.set("n", "<leader>lg", telescope.live_grep)
+vim.keymap.set(
+	"n",
+	"<leader>lg",
+	telescope_extensions.live_grep_args.live_grep_args
+)
 vim.keymap.set("n", "<leader>gs", telescope.git_status)
 vim.keymap.set("n", "<leader>dws", telescope.lsp_dynamic_workspace_symbols)
 vim.keymap.set("n", "<leader>dg", telescope.diagnostics)

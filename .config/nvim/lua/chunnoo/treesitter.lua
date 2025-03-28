@@ -28,3 +28,9 @@ require("treesitter-context").setup({
 	zindex = 20,
 	on_attach = nil,
 })
+
+vim.api.nvim_set_hl(
+	0,
+	"TreesitterContext",
+	{ ctermbg = require("chunnoo.colors").darker_gray }
+)
